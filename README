@@ -1,0 +1,34 @@
+NAME
+    AnyEvent::FSNotify - AnyEvent compatible module to monitor filesystem
+    for changes
+
+SYNOPSIS
+      use AnyEvent::FSNotify;
+  
+      my $watcher = AnyEvent::FSNotify->new(dirs => [$dir1, $dir2, ...], cb => sub {
+          my @events = @_;
+          for my $event (@events) {
+          print "$event->{type} : $event->{path}\n";
+      });
+  
+      $cv->recv;
+
+DESCRIPTION
+    This module is yet another AnyEvent::Filesys::Notify, without Moose.
+
+METHODS
+  new($dir1, $dir2, .., sub { ... })
+    Initializes monitor.
+
+AUTHOR
+    Rintaro Ishizaki <rintaro@cpan.org>
+
+SEE ALSO
+    Depends Linux::INotify2, Mac::FSEvents and AnyEvent.
+
+    Alternatives AnyEvent::Filesys::Notify, Filesys::Notify::Simple.
+
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
